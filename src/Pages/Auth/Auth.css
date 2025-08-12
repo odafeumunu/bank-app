@@ -1,0 +1,153 @@
+/* Container */
+.auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+/* Form Headings */
+form p {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.p-2 {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Inputs */
+.inps {
+  margin-top: 20px;
+}
+
+.inps label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.inps input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+.inps input:focus,
+.inps select:focus,
+.inps textarea:focus {
+  border-color: blue;
+  outline: none;
+}
+
+/* Forgot Password */
+.forget {
+  font-size: 0.9rem;
+  color: blue;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 25px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darkblue;
+}
+
+/* Bottom Text */
+.optional {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.optional a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Switch (Optional — if you still use it somewhere) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}

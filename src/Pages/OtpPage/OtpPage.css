@@ -1,0 +1,72 @@
+/* Wrapper */
+.otp-page-wrapper {
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+
+
+/* OTP container */
+.otp-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.otp-container p {
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* OTP inputs */
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.otp-inputs input {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.otp-inputs input:focus {
+  border-color: blue;
+}
+
+/* Timer */
+.timer p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Footer links */
+.footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer small {
+  font-size: 0.8rem;
+}
+
+.footer a {
+  color: blue;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

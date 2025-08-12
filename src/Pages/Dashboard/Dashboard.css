@@ -1,0 +1,278 @@
+/* Dashboard.css */
+
+.dashboard {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 🔵 HEADER */
+.dashboard-header {
+  background: #0057d8;
+  padding: 1rem 0 4rem 0;
+  color: white;
+  position: relative;
+}
+
+.dashboard-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header .left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.greeting {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.right .icon {
+  font-size: 18px;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.balance-center {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.main-balance {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eye-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.balance-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ⚪ OVERLAPPING CARD */
+.dashboard-card {
+    position: relative;
+  background: #fff;
+  padding: 1.2rem 1.5rem;
+  margin: -2rem 1rem 1rem;
+  border-radius: 15px;
+}
+
+.balance-overview {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.account-number {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.copy-icon {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.top-up-btn {
+  background-color: #0057d8;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+}
+
+/* 📌 ACTIVITY */
+
+.activity-section h3 {
+  margin-bottom: 1rem;
+}
+
+.activity-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+/* ✔️ Verification Progress */
+.verification p {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #0057d8;
+}
+.label::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.balance-overview div:first-child .label::before {
+  background-color: red;
+}
+
+.balance-overview div:last-child .label::before {
+  background-color: blue;
+}
+
+/* 🎯 Activity Enhancement */
+.activity-item {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 30%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.activity-item svg {
+  background-color: #0057d8;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ✅ Verification Section */
+.verification-section {
+  border-top: 1px solid #eee;
+}
+
+.verification-section h3 {
+  margin-bottom: 1rem;
+}
+
+.verification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.verification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.icon-wrapper {
+  background-color: #0057d8;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-text strong {
+  font-size: 0.95rem;
+  display: block;
+}
+
+.item-text p {
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
+}
+
+.item-text a {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #0057d8;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0.5rem 0;
+}
+
+/* 📰 News & Promos */
+.promos-section {
+    margin-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.promo-banner {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.invite-box h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.invite-box p {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.invite-box a {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #0057d8;
+}

@@ -1,0 +1,44 @@
+/* Wrap the whole container */
+.otp-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Keypad sits at bottom */
+.custom-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fafafa;
+}
+
+.key-btn {
+  padding: 20px 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #222;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.key-btn:active {
+  background-color: #e0e0e0;
+}
