@@ -289,7 +289,7 @@ hr {
 .sidebar {
   position: fixed;
   top: 0;
-  right: -1000px;
+  right: -10000px;
   width: 100%;
   height: 100vh;
   background-color: #fff;

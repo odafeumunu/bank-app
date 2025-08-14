@@ -64,7 +64,7 @@ export const EnterTransactionPinModal = ({
             {otp.map((digit, idx) => (
               <input
                 key={idx}
-                type="text"
+                type="password"
                 value={digit}
                 readOnly
                 ref={(el) => (inputRefs.current[idx] = el)}

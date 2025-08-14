@@ -50,7 +50,7 @@ export const BankTransferSidebar = ({
       setAccountNum("");
       setAccountName("");
       setSelectedBank(mode === "same" ? "SecBank" : "");
-      hasInteracted.current = false; // reset the interaction state
+      hasInteracted.current = false;
     }
   }, [resetTrigger, mode, setAccountNum, setAccountName, setSelectedBank]);
 
@@ -58,7 +58,7 @@ export const BankTransferSidebar = ({
     if (accountNum.length === 10 && selectedBank !== "") {
       setIsVerifying(true);
       setTimeout(() => {
-        setAccountName("Michael Johnson"); // mock verified name
+        setAccountName("Michael Johnson");
         setIsVerifying(false);
       }, 500);
     } else {
@@ -67,13 +67,13 @@ export const BankTransferSidebar = ({
   };
 
   useEffect(() => {
-    if (!hasInteracted.current) return; // skip initial run
+    if (!hasInteracted.current) return;
     handleVerify();
   }, [accountNum, selectedBank]);
 
   const handleBankChange = (value) => {
     setSelectedBank(value);
-    hasInteracted.current = true; // user interacted with bank selection
+    hasInteracted.current = true;
   };
 
   const isFormValid =
