@@ -1,4 +1,4 @@
-/* Dashboard.css */
+Dashboard.css
 
 .dashboard {
   min-height: 100vh;
@@ -69,7 +69,7 @@
 
 /* ⚪ OVERLAPPING CARD */
 .dashboard-card {
-    position: relative;
+  position: relative;
   background: #fff;
   padding: 1.2rem 1.5rem;
   margin: -2rem 1rem 1rem;
@@ -121,7 +121,9 @@
 }
 
 /* 📌 ACTIVITY */
-
+.activity-section {
+  margin-bottom: 20px;
+}
 .activity-section h3 {
   margin-bottom: 1rem;
 }
@@ -134,17 +136,39 @@
 
 .activity-item {
   display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+  width: 30%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   flex-direction: column;
   align-items: center;
-  color: #333;
   gap: 0.4rem;
   cursor: pointer;
+  border-radius: 10px;
+}
+.activity-item p{
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.icon-act {
+  height: 40px;
+  width: 40px;
+  background-color: #0057d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
 /* ✔️ Verification Progress */
 .verification p {
   font-size: 0.9rem;
   margin-bottom: 0.4rem;
+  height: 100px;
+  width: 100px;
 }
 
 .progress-bar {
@@ -176,27 +200,10 @@
   background-color: blue;
 }
 
-/* 🎯 Activity Enhancement */
-.activity-item {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 30%;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.activity-item svg {
-  background-color: #0057d8;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
 /* ✅ Verification Section */
 .verification-section {
   border-top: 1px solid #eee;
+  padding: 20px 0;
 }
 
 .verification-section h3 {
@@ -251,11 +258,12 @@ hr {
 
 /* 📰 News & Promos */
 .promos-section {
-    margin-top: 30px;
+  padding: 20px 0;
   border-top: 1px solid #eee;
 }
 
 .promo-banner {
+  margin-top: 20px;
   width: 100%;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -276,3 +284,333 @@ hr {
   font-weight: bold;
   color: #0057d8;
 }
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -1000px;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.sidebar-header svg {
+  cursor: pointer;
+}
+
+.sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  padding: 0 0.9rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+}
+.sidebar-search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.9rem 0;
+  font-size: 0.8rem;
+}
+
+.sidebar-menu .sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  padding: 14px;
+  margin-bottom: 1rem;
+  color: #0057d8;
+}
+.sidebar-item.item-2{
+  box-shadow: none;
+  border-radius: 0;
+  padding: 14px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+.sidebar-item.item-2:last-child{
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+.sidebar-menu .sidebar-item span {
+  font-size: 0.8rem;
+  color: black;
+}
+
+.sidebar-item .item-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.sidebar-item .item-left span,
+.sidebar-item .item-right span {
+  font-weight: 600;
+}
+.imageItem {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Toggle Buttons */
+.transfer-toggle {
+  display: flex;
+  gap: 1rem;
+  margin: 4rem 0 1rem;
+}
+
+.transfer-toggle button {
+  padding: 0.4rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.transfer-toggle .active {
+  background-color: #0057d8;
+  color: white;
+  border: 1px solid #0057d8;
+}
+.profile-top {
+  background-color: rgba(27, 27, 146, 0.767);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.image-pro {
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 4px;
+}
+.image-pro img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-top p {
+  font-weight: 600;
+}
+.profile-top small {
+  text-decoration: underline;
+}
+
+.chevron-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #0057d8;
+}
+label{
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+.amount-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0;
+  margin: 1.5rem 0;
+}
+
+.naira-input {
+  font-size: 2rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.balance-text {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.note-input-wrapper {
+  margin-bottom: 2rem;
+}
+
+.note-input-wrapper input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 0.8rem;
+}
+
+.keypad {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+.keypad-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.keypad-row button {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: blue;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.send-btn {
+  width: 100%;
+  padding: 1rem;
+  background: blue;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.send-btn.close{
+  margin-top: 20px;
+  border: 2px solid blue;
+  background-color: transparent;
+  color: blue;
+}
+
+
+.send-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.payment-cont{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: none;
+}
+.payment-cont.open {
+  display: block;
+}
+.payment-cont .inner{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  overflow-block: auto;
+  padding: 30px 25px;
+  background-color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.inner-2{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.success-message h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 16px 0 4px;
+}
+
+.success-message p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.checkmark-wrapper {
+  width: 100px;
+  height: 100px;
+  animation: pulseScale 1.5s ease-in-out infinite;
+}
+
+.checkmark {
+  width: 100%;
+  height: 100%;
+}
+
+.checkmark-check {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Animation */
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+

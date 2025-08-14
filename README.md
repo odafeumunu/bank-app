@@ -1,13 +1,22 @@
-# SeaBank Mobile App 📱
+# SeaBank Mobile Banking App 💰
 
-## ✨ Overview
+## Overview
+This project is a modern, responsive React frontend application simulating a secure mobile banking experience. It features a comprehensive user authentication flow, facial verification for enhanced security, and a functional dashboard with fund transfer capabilities, demonstrating a robust client-side architecture.
 
-SeaBank Mobile App is a modern, responsive single-page application built with React, designed to provide a seamless and secure mobile banking experience. It features a comprehensive user authentication flow, multi-factor verification (OTP, email, facial recognition), a personalized dashboard, and interactive financial insights. This project showcases robust frontend development practices, state management, and an intuitive user interface.
+## Features
+*   **User Authentication & Onboarding**: Seamless sign-up, login, OTP verification, email verification, and a multi-step user details collection process.
+*   **Facial Recognition Integration**: Advanced biometric verification for secure login, enhancing user account protection.
+*   **Transaction PIN Management**: Secure creation and validation of a 4-digit transaction PIN for financial operations.
+*   **Interactive Dashboard**: Provides a clear overview of account balance, spending, and earnings, along with quick access to key banking activities.
+*   **Fund Transfer System**: Allows users to initiate transfers to both same-bank and other-bank accounts with account verification simulation.
+*   **Dynamic UI Elements**: Features like collapsible sidebars, modals for PIN entry, and confirmation screens provide a smooth user experience.
+*   **Responsive Design**: Built to offer a consistent experience across various mobile devices.
+*   **Toast Notifications**: Provides real-time feedback for user actions and system alerts using `react-toastify`.
 
-## 🛠️ Installation
+## Getting Started
+To get this project up and running on your local machine, follow these steps.
 
-Follow these steps to set up the project locally:
-
+### Installation
 1.  **Clone the Repository**:
     ```bash
     git clone https://github.com/odafeumunu/bank-app.git
@@ -17,87 +26,83 @@ Follow these steps to set up the project locally:
     cd bank-app/my-app
     ```
 3.  **Install Dependencies**:
+    Install all required packages using npm:
     ```bash
     npm install
     ```
-    or if you prefer `yarn`:
-    ```bash
-    yarn install
-    ```
 
-## 🚀 Usage
+### Environment Variables
+This project primarily runs client-side and does not explicitly require external environment variables for basic functionality. However, for a production environment, you would typically configure API endpoints, authentication keys, and other sensitive information.
 
-To run the application in development mode:
-
+### Running the Application
+To start the development server:
 ```bash
 npm run dev
 ```
+The application will typically be accessible at `http://localhost:5173/` (or another port if 5173 is in use).
 
-This will start the development server, usually on `http://localhost:5173`.
-The application will automatically reload if you make changes.
+## Usage
+Once the application is running, you can interact with it as follows:
 
-To build the application for production:
+### Authentication Flow
+1.  **Home Page**: You'll land on the home page with options to `Login` or `Create an account`.
+2.  **Sign Up**:
+    *   Click `Create an account`.
+    *   Enter a mobile number (step 1/9). Click `Proceed`.
+    *   **OTP Verification**: Enter any 4 digits (e.g., `1234`) for OTP verification (step 2/9). It will automatically proceed.
+    *   **Email Verification**: Enter an email (e.g., `test@example.com`) for email verification (step 3/9). Click `Proceed`.
+    *   **Email OTP**: Enter any 4 digits (e.g., `1234`) for email OTP (step 4/9). It will automatically proceed.
+    *   **User Details (Part 1)**: Fill in personal details like first name, last name, DOB, and gender (step 5/9). Click `Proceed`.
+    *   **User Details (Part 2)**: Simulate facial recognition (tap "Tap to scan face"), provide residential address, state, LGA, and residency type (step 6/9). Click `Proceed`.
+    *   **User Details (Part 3)**: Create and confirm a password, enable fingerprint/Face ID (optional), and agree to terms (step 7/9). Click `Proceed`.
+    *   **Create Transaction PIN**: Enter a 4-digit PIN (e.g., `1234`) using the keypad (step 8/9). This will complete the sign-up process and redirect to login.
+3.  **Login**:
+    *   Use the credentials:
+        *   **Email**: `test@gmail.com`
+        *   **Password**: `Testing_123`
+    *   Upon successful login, you'll be prompted to `Enable Facial Verification`.
+    *   Click `Enable Now` to proceed to face verification.
+    *   **Face Verification**: Click `Start Scan`. A simulated scan will occur. Upon success, you will be redirected to the Dashboard.
 
-```bash
-npm run build
-```
-
-This command bundles the React app into static files in the `dist` directory, ready for deployment.
-
-## ✨ Features
-
-*   **Secure User Authentication**:
-    *   **Sign Up & Login**: Robust entry points for new and existing users.
-    *   **Multi-step Onboarding**: A guided process for new user registration, collecting essential details like phone, email, personal information, and address.
-*   **Advanced Verification Flows**:
-    *   **OTP Verification**: Secure one-time password verification for mobile numbers.
-    *   **Email Verification**: Ensures email address validity for account security.
-    *   **Facial Recognition**: Optional biometric authentication for enhanced login security.
-    *   **Transaction PIN Creation**: Sets up a secure four-digit PIN for transactions.
-*   **Personalized Dashboard**:
-    *   **Balance Overview**: Displays available balance, spent, and earned amounts.
-    *   **Account Details**: Shows account number with a quick copy functionality.
-    *   **Activity Section**: Provides quick access to key functionalities like Transfer, My Card, and Insights.
-    *   **Verification Progress Tracker**: Guides users through profile completion with a visual progress bar.
-    *   **News & Promotions**: Features dynamic content and referral program details.
-*   **Smooth User Experience**:
-    *   **Protected Routes**: Ensures only authenticated users can access sensitive areas like the dashboard.
-    *   **Scroll-to-Top Navigation**: Automatically scrolls to the top on route changes for a consistent experience.
-    *   **Toast Notifications**: Provides timely feedback for user actions (e.g., login success, errors).
-    *   **Image Slider**: Engaging introductory slides on the homepage using Swiper.
-
-## 💻 Technologies Used
-
-| Technology         | Description                                       | Link                                                                  |
-| :----------------- | :------------------------------------------------ | :-------------------------------------------------------------------- |
-| **React**          | Frontend JavaScript library for building UIs.     | [React](https://react.dev/)                                           |
-| **Vite**           | Next-generation frontend tooling.                 | [Vite](https://vitejs.dev/)                                           |
-| **React Router**   | Declarative routing for React applications.       | [React Router](https://reactrouter.com/)                              |
-| **React Icons**    | Collection of popular icons for React.            | [React Icons](https://react-icons.github.io/react-icons/)             |
-| **React Toastify** | Easy to use React-Toastify for notifications.     | [React Toastify](https://fkhadra.github.io/react-toastify/)           |
-| **Swiper**         | Modern touch slider for mobile websites and apps. | [Swiper](https://swiperjs.com/)                                       |
-| **ESLint**         | Pluggable JavaScript linter for code quality.     | [ESLint](https://eslint.org/)                                         |
-
-## 🤝 Contributing
-
-Contributions are welcome! If you'd like to contribute to SeaBank Mobile App, please follow these steps:
-
-1.  **Fork the repository**.
-2.  **Create a new branch** for your feature or bug fix: `git checkout -b feature-name` or `git checkout -b bugfix-name`.
-3.  **Make your changes** and ensure they adhere to the project's coding style.
-4.  **Write clear, concise commit messages**.
-5.  **Push your branch** to your forked repository.
-6.  **Open a pull request** describing your changes in detail.
-
-Please ensure your code passes all linting checks before submitting a pull request.
+### Dashboard Functionality
+*   **Balance Overview**: View your available balance, total spent, and total earned. You can toggle balance visibility using the eye icon.
+*   **Account Number**: Copy your account number to the clipboard.
+*   **Top Up**: Click `Top up` to simulate adding funds to your account.
+*   **Activity Section**:
+    *   **Transfer**: Click `Transfer` to open the transfer hub.
+        *   Choose between `Send to Other Banks` or `Send with my SecBank Account`.
+        *   **Bank Transfer**: Enter a 10-digit account number and select a bank. The account name "Michael Johnson" will be mocked for verification.
+        *   Click `Proceed`.
+        *   **Amount Entry**: Enter an amount using the keypad (e.g., `1000`). Add an optional narration.
+        *   Click `Send Money`.
+        *   **Confirm Payment**: Review transaction details and click `Confirm Payment`.
+        *   **Enter Transaction PIN**: Input your 4-digit transaction PIN (default `1234`).
+        *   Upon successful PIN entry, a success message appears. Click `Close` to return to the dashboard.
+*   **Sidebars**: Access the main menu (hamburger icon) or profile details (profile image).
 
 
-## 🏆 Badges
+## Technologies Used
+| Technology         | Description                                        | Link                                                                        |
+| :----------------- | :------------------------------------------------- | :-------------------------------------------------------------------------- |
+| **React**          | JavaScript library for building user interfaces    | [https://react.dev/](https://react.dev/)                                    |
+| **Vite**           | Next-generation frontend tooling                   | [https://vitejs.dev/](https://vitejs.dev/)                                  |
+| **React Router**   | Declarative routing for React                      | [https://reactrouter.com/](https://reactrouter.com/)                        |
+| **React Icons**    | Customizable React icons                           | [https://react-icons.github.io/react-icons/](https://react-icons.github.io/react-icons/) |
+| **React Toastify** | Notification library for React                     | [https://fkhadra.github.io/react-toastify/](https://fkhadra.github.io/react-toastify/) |
+| **Swiper**         | Modern touch slider                                | [https://swiperjs.com/](https://swiperjs.com/)                              |
+| **ESLint**         | Pluggable JavaScript linter                        | [https://eslint.org/](https://eslint.org/)                                  |
 
-[![React.js](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)
-[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
-[![npm version](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+## Contributing
+We welcome contributions to the SeaBank Mobile Banking App! If you have suggestions for improvements, new features, or bug fixes, please follow these guidelines:
 
-[![Readme was generated by Dokugen](https://img.shields.io/badge/Readme%20was%20generated%20by-Dokugen-brightgreen)](https://www.npmjs.com/package/dokugen)
+*   **Fork the repository** 🍴.
+*   **Create a new branch** for your feature or fix: `git checkout -b feature/your-feature-name` or `fix/bug-description` 🚀.
+*   **Make your changes** and ensure they align with the existing code style.
+*   **Write clear, concise commit messages** describing your changes.
+*   **Test your changes** thoroughly to avoid introducing new issues.
+*   **Push your branch** to your forked repository.
+*   **Open a Pull Request** against the `main` branch of this repository 🤝.
+*   Provide a detailed description of your changes in the pull request.
+
+## License
+This project is currently unlicensed. Please contact the author for licensing information.

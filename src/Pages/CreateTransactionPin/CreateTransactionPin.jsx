@@ -4,6 +4,7 @@ import "./CreateTransactionPin.css";
 import { Link, useNavigate } from "react-router";
 import { MdFingerprint } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
+import { toast } from "react-toastify";
 
 export const CreateTransactionPin = () => {
   const inputRefs = useRef([]);
@@ -32,6 +33,7 @@ export const CreateTransactionPin = () => {
     inputRefs.current[nextIndex]?.focus();
 
     if (nextIndex === 3) {
+      toast.success("Transaction PIN created!");
       setTimeout(() => navigate("/login"), 100);
     }
   };
