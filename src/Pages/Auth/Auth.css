@@ -58,6 +58,7 @@ form p {
   background: transparent;
   font-size: 0.9rem;
   transition: border 0.3s ease;
+  outline: none;
 }
 
 .inps input:focus,

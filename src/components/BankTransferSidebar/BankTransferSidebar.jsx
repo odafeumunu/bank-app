@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaBuilding } from "react-icons/fa";
 
 const banks = [
@@ -37,6 +37,7 @@ export const BankTransferSidebar = ({
   mode = "other",
 }) => {
   const [isVerifying, setIsVerifying] = useState(false);
+  const hasInteracted = useRef(false); // prevents first-load verification
 
   useEffect(() => {
     if (mode === "same") {
@@ -49,28 +50,34 @@ export const BankTransferSidebar = ({
       setAccountNum("");
       setAccountName("");
       setSelectedBank(mode === "same" ? "SecBank" : "");
+      hasInteracted.current = false; // reset the interaction state
     }
   }, [resetTrigger, mode, setAccountNum, setAccountName, setSelectedBank]);
 
- const handleVerify = () => {
-   if (accountNum.length === 10 && selectedBank !== "") {
-     setIsVerifying(true);
-     setTimeout(() => {
-       setAccountName("Michael Johnson"); // mock verified name
-       setIsVerifying(false);
-     }, 500);
-   } else {
-     setAccountName("");
-   }
- };
+  const handleVerify = () => {
+    if (accountNum.length === 10 && selectedBank !== "") {
+      setIsVerifying(true);
+      setTimeout(() => {
+        setAccountName("Michael Johnson"); // mock verified name
+        setIsVerifying(false);
+      }, 500);
+    } else {
+      setAccountName("");
+    }
+  };
 
   useEffect(() => {
+    if (!hasInteracted.current) return; // skip initial run
     handleVerify();
   }, [accountNum, selectedBank]);
 
+  const handleBankChange = (value) => {
+    setSelectedBank(value);
+    hasInteracted.current = true; // user interacted with bank selection
+  };
+
   const isFormValid =
     accountNum.length === 10 && selectedBank !== "" && accountName;
-
 
   return (
     <div
@@ -89,9 +96,10 @@ export const BankTransferSidebar = ({
           type="text"
           id="account_number"
           value={accountNum}
-          onChange={(e) =>
-            setAccountNum(e.target.value.replace(/\D/g, "").slice(0, 10))
-          }
+          onChange={(e) => {
+            setAccountNum(e.target.value.replace(/\D/g, "").slice(0, 10));
+            hasInteracted.current = true; // mark interaction
+          }}
           placeholder="Enter 10-digit account number"
         />
       </div>
@@ -102,7 +110,7 @@ export const BankTransferSidebar = ({
           <select
             id="bank"
             value={selectedBank}
-            onChange={(e) => setSelectedBank(e.target.value)}>
+            onChange={(e) => handleBankChange(e.target.value)}>
             {banks.map((bank) => (
               <option key={bank.value} value={bank.value}>
                 {bank.label}
