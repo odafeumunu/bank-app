@@ -24,7 +24,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <Router>
-      <ToastContainer />
+      <ToastContainer style={{zIndex: 99999}} />
       <ScrollToTop />
       <div className="app">
         <Routes>

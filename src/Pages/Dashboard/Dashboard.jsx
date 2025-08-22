@@ -28,15 +28,20 @@ import {
   FaHistory,
   FaPiggyBank,
   FaMoneyCheckAlt,
+  FaLock,
+  FaCheck,
+  FaCheckCircle,
 } from "react-icons/fa";
 import "./Dashboard.css";
 import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router"; // ✅ fixed import
+import { Link, useNavigate } from "react-router";
 import promo from "../../assets/promo.jpeg";
 import img1 from "../../assets/img1.jpg";
 import first from "../../assets/first.png";
-import gtb from "../../assets/gtb.png";
+import gtb from "../../assets/gtb.png";;
 import uba from "../../assets/uba.png";
+import frontCard from "../../assets/front_card.png";
+import backCard from "../../assets/back_card.png";
 import { EnterTransactionPinModal } from "../../components/EnterTransactionPinModal/EnterTransactionPinModal";
 import { BankTransferSidebar } from "../../components/BankTransferSidebar/BankTransferSidebar";
 
@@ -120,6 +125,11 @@ export const Dashboard = () => {
   const [showBalance, setShowBalance] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [insightOpen, setInsightOpen] = useState(false);
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [showCardBack, setShowCardBack] = useState(false);
+  const [cardOpen, setCardOpen] = useState(false);
+  const [isToggleOn, setIsToggleOn] = useState(true);
   const [isTransferHubOpen, setIsTransferHubOpen] = useState(false); // main transfer sidebar
   const [showOtherBankTransfer, setShowOtherBankTransfer] = useState(false);
   const [showSameBankTransfer, setShowSameBankTransfer] = useState(false);
@@ -225,7 +235,7 @@ export const Dashboard = () => {
       toast.info("Logged out successfully!");
       navigate("/login");
     } else {
-      toast.info(`You clicked "${item.label}"`);
+      toast.info(`"${item.label}": Coming soon`);
     }
   };
 
@@ -312,6 +322,38 @@ export const Dashboard = () => {
                 <span>{item.label}</span>
               </div>
               <FaChevronRight />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SIDEBAR – NOTIFICATION */}
+      <div className={`sidebar ${notificationOpen ? "open" : ""}`}>
+        <div className="sidebar-header">
+          <FaChevronLeft size={20} onClick={() => setNotificationOpen(false)} />
+          <span>Notification</span>
+        </div>
+
+        <div className="sidebar-menu">
+          {recents.map((item, idx) => (
+            <div
+              className="sidebar-item"
+              key={idx}
+              onClick={() => handleMenuClick(item)}>
+              <div className="item-left">
+                <div className="imageItem">
+                  <img src={item.img} alt={item.name} className="avatar-img" />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <span>{item.name}</span>
+                  <small style={{ fontSize: "0.75rem", color: "#000" }}>
+                    {item.bank} | {item.account}
+                  </small>
+                </div>
+              </div>
+              <div className="enter">
+                <FaCheckCircle />
+              </div>
             </div>
           ))}
         </div>
@@ -465,6 +507,137 @@ export const Dashboard = () => {
         </div>
       </div>
 
+      {/* SIDEBAR – INSIGHT */}
+      <div className={`sidebar ${insightOpen ? "open" : ""}`}>
+        <div className="sidebar-header">
+          <FaChevronLeft size={20} onClick={() => setInsightOpen(false)} />
+          <span>Insight</span>
+        </div>
+
+        <div
+          className="bal"
+          style={{ textAlign: "center", marginBottom: "50px" }}>
+          <h3>Your balance is {formatNGN(balance)}</h3>
+        </div>
+
+        <div className="dashboard-card">
+          <div className="cont">
+            <div className="balance-overview">
+              <div>
+                <p className="label">Spent</p>
+                <h4>{formatNGN(spent)}</h4>
+              </div>
+              <div>
+                <p className="label">Earned</p>
+                <h4>{formatNGN(earned)}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style={{ marginBottom: "20px" }}>Top Transaction</h3>
+
+        <div className="sidebar-search">
+          <FaSearch size={20} />
+          <input type="search" placeholder="Search..." />
+        </div>
+
+        <div className="sidebar-menu">
+          {recents.map((item, idx) => (
+            <div
+              className="sidebar-item"
+              key={idx}
+              onClick={() => handleMenuClick(item)}>
+              <div className="item-left">
+                <div className="imageItem">
+                  <img src={item.img} alt={item.name} className="avatar-img" />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <span>{item.name}</span>
+                  <small style={{ fontSize: "0.75rem", color: "#000" }}>
+                    {item.bank} | {item.account}
+                  </small>
+                </div>
+              </div>
+              <div className="enter">
+                <span style={{ color: "green" }}>
+                  +{formatNGN(50000)} <FaChevronRight />
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SIDEBAR – CARD */}
+      <div className={`sidebar ${cardOpen ? "open" : ""}`}>
+        <div className="sidebar-header">
+          <FaChevronLeft size={20} onClick={() => setCardOpen(false)} />
+          <span>Your SecBank Card</span>
+        </div>
+
+        <div
+          className="card-container"
+          onClick={() => setShowCardBack(!showCardBack)}>
+          <div className={`card-inner ${showCardBack ? "is-flipped" : ""}`}>
+            <div className="card-front">
+              <img src={frontCard} alt="front" />
+            </div>
+            <div className="card-back">
+              <img src={backCard} alt="back" />
+            </div>
+          </div>
+        </div>
+
+        <div className="activity-section">
+          <div className="activity-icons">
+            <div className="activity-item">
+              <div className="icon-act">
+                <FaLock size={17} />
+              </div>
+              <p>Lock Card</p>
+            </div>
+            <div className="activity-item">
+              <div className="icon-act">
+                <FaCreditCard size={17} />
+              </div>
+              <p>Change Pin</p>
+            </div>
+            <div className="activity-item">
+              <div className="icon-act">
+                <FaChartPie size={17} />
+              </div>
+              <p>Top Up</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="settings-section">
+          <div className="settings-icons">
+            <h2>Settings</h2>
+
+            <div className="settings-row">
+              <div>
+                <div className="settings-text">
+                  <span className="settings-title">Set Card Limit</span>
+                  <small className="settings-subtext">
+                    Your budget for 3 categories
+                  </small>
+                </div>
+              </div>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={isToggleOn}
+                  onChange={() => setIsToggleOn(!isToggleOn)}
+                />
+                <span className="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* SAME BANK TRANSFER FLOW (form lives inside this component) */}
       <BankTransferSidebar
         transferOpen={showSameBankTransfer}
@@ -605,7 +778,10 @@ export const Dashboard = () => {
               <span className="greeting">Hello, Michael</span>
             </div>
             <div className="right">
-              <FaBell className="icon" />
+              <FaBell
+                className="icon"
+                onClick={() => setNotificationOpen(true)}
+              />
               <FaBars className="icon" onClick={() => setSidebarOpen(true)} />
             </div>
           </div>
@@ -663,13 +839,13 @@ export const Dashboard = () => {
               </div>
               <p>Transfer</p>
             </div>
-            <div className="activity-item">
+            <div className="activity-item" onClick={() => setCardOpen(true)}>
               <div className="icon-act">
                 <FaCreditCard size={17} />
               </div>
               <p>My Card</p>
             </div>
-            <div className="activity-item">
+            <div className="activity-item" onClick={() => setInsightOpen(true)}>
               <div className="icon-act">
                 <FaChartPie size={17} />
               </div>
